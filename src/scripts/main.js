@@ -238,7 +238,6 @@ function renderLoyaltyCard(client) {
     const cutsNeeded = client.loyaltyCard?.cutsNeeded || 10;
     const cutsRemaining = Math.max(cutsNeeded - totalCuts, 0);
 
-    // Exibir o ID do usuário no cartão de fidelidade
     if (cardIdEl) {
         cardIdEl.textContent = `ID: ${client.id}`;
     }
