@@ -1,0 +1,36 @@
+{
+  "name": "member-club-loyalty",
+  "version": "1.0.0",
+  "description": "Sistema de cartão de fidelidade para salões de beleza",
+  "main": "index.html",
+  "scripts": {
+    "start": "json-server --watch db.json --port 3000",
+    "dev": "json-server --watch db.json --port 3000 --host 0.0.0.0",
+    "dev:frontend": "npx http-server . -p 8080 -c-1 --cors",
+    "dev:full": "concurrently \"npm run start\" \"npm run dev:frontend\"",
+    "build": "echo 'Build não necessário para projeto estático'",
+    "test": "echo 'Testes não configurados'",
+    "lint": "echo 'Linting não configurado'",
+    "format": "echo 'Formatação não configurada'"
+  },
+  "keywords": [
+    "loyalty",
+    "fidelidade",
+    "salão",
+    "beleza",
+    "cartão",
+    "api",
+    "json-server"
+  ],
+  "author": "MEMBER -CLUB-",
+  "license": "MIT",
+  "devDependencies": {
+    "json-server": "^0.17.4",
+    "concurrently": "^8.2.2",
+    "http-server": "^14.1.1"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

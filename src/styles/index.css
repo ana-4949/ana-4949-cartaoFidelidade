@@ -1,0 +1,740 @@
+
+/* ========================================
+   HEADER
+   ======================================== */
+   .header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.logo img {
+   
+    width: 100%;
+    max-width: 10rem;
+    margin: 3rem auto;
+
+}
+
+.search-container {
+    position: relative;
+    width: 26rem;
+    margin: 0 auto 1.3rem auto;
+}
+
+.card-input {
+    padding: 0.9rem 3.5rem 0.9rem 1.3rem;
+    border: 0.2rem solid var(--color-gray-400);
+    border-radius: var(--border-radius-md);
+    font-size: var(--fs-text-md);
+    width: 100%;
+    outline: none;
+    transition: border-color var(--transition-normal), background-color var(--transition-normal);
+    background-color: var(--color-gray-300);
+}
+
+.card-input:focus {
+    border-color: var(--color-pink);
+}
+
+
+.card-input::placeholder { color: var(--color-gray-500); }
+
+.card-input:not(:placeholder-shown) {
+    background-color: var(--color-gray-200);
+}
+
+.card-input:not(:placeholder-shown):focus {
+    background-color: var(--color-gray-200);
+}
+
+.search-btn {
+    position: absolute;
+    top: 50%;
+    right: 0.4rem;
+    transform: translateY(-50%);
+    background-color: var(--color-gray-700);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-md);
+    padding: 0;
+    cursor: pointer;
+    transition: background-color var(--transition-normal), transform var(--transition-normal), opacity var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    opacity: 0.6;
+}
+
+.enter-btn-img {
+    width: 1.3rem;
+    height: 1.3rem;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.search-btn:hover {
+    transform: scale(1.05);
+    background-color: var(--color-gray-600);
+    opacity: 1;
+}
+
+.search-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ========================================
+   LAYOUT PRINCIPAL
+   ======================================== */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    max-width: 62.5rem;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+/* ========================================
+   PAINEL ESQUERDO - PERFIL E HISTÓRICO
+   ======================================== */
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-height: 0;
+}
+
+.profile-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    padding: 1.3rem;
+    box-shadow: var(--shadow-medium);
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+    grid-area: profile;
+}
+
+.profile-pic {
+    background: var(--gradient-primary);
+    padding: 0.2rem;
+    border-radius: 1rem;
+    display: inline-flex;
+    box-shadow: var(--shadow-light);
+}
+
+.profile-img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 0.8rem;
+    object-fit: cover;
+    background: var(--color-white);
+}
+
+.user-name {
+    font-size: var(--fs-title-md);
+    font-weight: var(--fw-bold);
+    color: var(--color-gray-600);
+    margin-bottom: 0.5rem;
+}
+
+.client-since {
+    font-size: var(--fs-text-sm);
+    color: var(--color-gray-500);
+    font-weight: var(--fw-regular);
+}
+
+.history-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5625rem;
+    box-shadow: var(--shadow-medium);
+    display: flex;
+    flex-direction: column;
+    height: 20rem;
+    min-height: 0;
+    grid-area: history;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.3rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 0.2rem solid var(--color-gray-200);
+}
+
+.section-title {
+    font-size: var(--fs-subtitle-md);
+    font-weight: var(--fw-bold);
+    color: var(--color-gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.cuts-count {
+    font-size: var(--fs-text-md);
+    color: var(--color-gray-500);
+    font-weight: var(--fw-regular);
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
+}
+
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 0.0625rem solid var(--color-gray-200);
+    
+}
+
+.service-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.service-day {
+    font-size: var(--fs-subtitle-md);
+    font-weight: var(--fw-bold);
+    color: var(--color-gray-700);
+}
+
+.service-time {
+    font-size: var(--fs-text-xs);
+    color: var(--color-gray-500);
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.service-date {
+    font-size: var(--fs-text-md);
+    color: var(--color-gray-700);
+    font-weight: var(--fw-regular);
+}
+
+.check-icon {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    display: inline-block;
+    background-color: var(--color-light-green);
+    border-radius: 20rem;
+    margin-right: 1rem;
+}
+
+.check-icon::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-green);
+    -webkit-mask-image: url('../assets/images/icon-check.svg');
+    mask-image: url('../assets/images/icon-check.svg');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: 60% 60%;
+    mask-size: 60% 60%;
+}
+
+
+
+
+
+/* ========================================
+   PAINEL DIREITO - CARTÃO DE FIDELIDADE
+   ======================================== */
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-height: 0;
+}
+
+.loyalty-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    padding: 1.875rem;
+    box-shadow: var(--shadow-medium);
+    position: relative;
+    height: 20rem;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-area: loyalty;
+}
+
+.loyalty-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+}
+.loyalty-titles {
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.3rem;
+}
+.loyalty-description {
+    font-size: var(--fs-text-xs); 
+    color: var(--color-gray-500);
+     line-height: var(--lh-140); 
+     margin: 0;
+     }
+
+.card-id {
+    background-color: var(--color-gray-200);
+     padding: 0.4rem 0.8rem; 
+     border-radius: 9999px; font-size: var(--fs-text-xs);
+     color: var(--color-gray-700);
+     display: inline-flex; 
+     align-items: center; 
+     justify-content: center;
+     font-family: var(--font-family-primary); 
+     font-weight: var(--fw-bold); 
+     box-shadow: 0 0.0625rem 0 rgba(0,0,0,0.04) inset; }
+
+/* ========================================
+   GRADE DE SELOS
+   ======================================== */
+.stamps-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.8rem;
+    margin-bottom: 1.875rem;
+}
+
+.stamp {
+    width: 4rem;
+    height: 4rem;
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-gray-200);
+    transition: all var(--transition-normal);
+}
+
+
+.stamp-icon {
+    width: 100%;
+    height: 100%;
+    min-width: 3.5rem;
+    min-height: 3.5rem;
+    object-fit: contain;
+}
+
+
+.stamp.reward .stamp-icon {
+    padding: 0.8rem;
+    opacity: 0.3;
+}
+
+/* ========================================
+   SEÇÃO DE PROGRESSO
+   ======================================== */
+.progress-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    padding: 1.3rem;
+    box-shadow: var(--shadow-medium);
+    margin-top: 0;
+    animation: scaleIn 1s ease-out;
+    grid-area: progress;
+}
+
+.progress-section {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1rem;
+}
+
+.progress-content { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.6rem; 
+}
+.progress-row { 
+    display: grid; 
+    grid-template-columns: 1fr auto;
+    align-items: center; 
+    gap: 0.8rem; 
+}
+
+.progress-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 8.75rem;
+}
+
+.remaining-cuts {
+    font-size: var(--fs-title-sm); 
+    color: var(--color-gray-700); 
+    font-weight: var(--fw-regular);
+ }
+.remaining-cuts .cuts-number {
+     font-size: var(--fs-title-md); 
+     font-weight: var(--fw-bold);
+      margin-right: 0.25rem; }
+
+.progress-text {
+    font-size: var(--fs-text-xs);
+    font-weight: var(--fw-regular);
+    color: var(--color-gray-500);
+}
+
+.progress-bar {
+    flex: 1;
+    height: 0.8rem;
+    background-color: var(--color-gray-200);
+    border-radius: 9999px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 70%;
+    background: var(--gradient-primary);
+    border-radius: 9999px;
+    transform-origin: left center;
+    transform: scaleY(var(--pf-scale, 1));
+    transition: width var(--transition-normal), transform var(--transition-normal);
+    position: relative;
+}
+
+
+
+.gift-icon {
+    flex-shrink: 0;
+    width: auto;
+    height: auto;
+    display: grid;
+    place-items: center;
+    background: var(--color-gray-200);
+    border-radius: 9999px;
+}
+
+.gift-img {
+    width: 5rem;
+    height: 5rem;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+@media (max-width: 48rem) {
+    .container { padding: 0.9rem; }
+    .main-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            'profile'
+            'loyalty'
+            'progress'
+            'history';
+        gap: 1.5rem;
+    }
+    
+    .left-panel,
+    .right-panel {
+        display: contents;
+    }
+    
+
+    .search-container {
+        width: 100%;
+        max-width: 18.75rem;
+        margin: 0 auto;
+    }
+    
+    .card-input {
+        width: 100%;
+        padding-right: 3.2rem;
+    }
+    
+    .search-btn {
+        right: 0.5rem;
+        width: 2rem;
+        height: 2rem;
+    }
+    
+    .profile-card { 
+        flex-direction: row; 
+        text-align: left; 
+        gap: 1.3rem; 
+        align-items: center;
+    }
+    
+    .loyalty-card {
+        height: auto;
+        justify-content: flex-start;
+        padding: 1.875rem 1.875rem;
+    }
+    
+    .progress-card {
+        padding: 1.875rem;
+    }
+    
+    .history-card {
+        padding: 1.5625rem 1.875rem;
+    }
+    
+    .profile-img {
+        width: 4.375rem;
+        height: 4.375rem;
+    }
+    
+    .user-name {
+        font-size: 1.3rem;
+    }
+    
+    .stamps-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .stamp {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    .stamp-icon {
+        width: 1.375rem;
+        height: 1.375rem;
+    }
+    
+    .progress-section { flex-direction: column; align-items: flex-start; gap: 0.9rem; }
+    
+    .progress-info {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .progress-bar {
+        width: 100%;
+    }
+    
+    .gift-icon { align-self: flex-end; }
+}
+
+@media (max-width: 30rem) {
+    .container {
+        padding: 0.6rem;
+    }
+
+    
+    .loyalty-card {
+        padding: 1.3rem;
+    }
+    
+    .profile-card {
+        padding: 1.3rem;
+    }
+    
+    .history-card {
+        padding: 1.3rem;
+    }
+    
+    .stamps-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.4rem;
+    }
+    
+    .stamp {
+        width: 2.2rem;
+        height: 2.2rem;
+    }
+    
+    .stamp-icon {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.2rem;
+    }
+    
+    .user-name {
+        font-size: 1.2rem;
+    }
+}
+
+/* ========================================
+   ANIMAÇÕES
+   ======================================== */
+
+
+.profile-card, .history-card, .loyalty-card {
+    animation: scaleIn 0.6s ease-out;
+}
+
+
+.animate-in {
+    animation: scaleIn 0.6s ease-out;
+}
+
+
+.progress-card.animate-in {
+    animation-delay: 0.15s;
+}
+.pre-animate {
+    opacity: 0 !important;
+}
+
+
+/* ========================================
+   EFEITOS HOVER
+   ======================================== */
+
+.search-btn:hover {
+    transform: translateY(-50%) scale(1.05);
+}
+
+.history-item:hover {
+    background-color: var(--color-gray-100);
+    border-radius: var(--border-radius-md);
+    padding: 0.8rem;
+    margin: 0 -0.8rem;
+}
+
+
+/* ========================================
+   MODAL DE PARABÉNS
+   ======================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-normal), visibility var(--transition-normal);
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-heavy);
+    max-width: 25rem;
+    width: 90%;
+    max-height: 90vh;
+    overflow: visible;
+    transform: scale(0.8);
+    transition: transform var(--transition-normal);
+    position: relative;
+}
+
+.modal-overlay.show .modal-content {
+    transform: scale(1);
+    padding: var(--spacing-xl);
+}
+
+.modal-header {
+    text-align: center;
+}
+
+.modal-title {
+    font-size: var(--fs-title-md);
+    font-weight: var(--fw-bold);
+    color: var(--color-gray-700);
+    margin: 0;
+}
+
+.modal-body {
+    text-align: center;
+}
+
+.modal-message {
+    font-size: var(--fs-text-md);
+    color: var(--color-gray-600);
+    margin: 0;
+    line-height: var(--lh-140);
+}
+
+.modal-gift-img {
+    width: 10rem;
+    height: 10rem;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.modal-btnFechar-wrapper {
+    padding: var(--spacing-lg);
+    text-align: center;
+    position: relative;
+}
+
+.modal-btn {
+    position: absolute;
+    top: -1.3rem;
+    right: -1.3rem;
+    background-color: var(--color-pink);
+    color: var(--color-white);
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: var(--fw-bold);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(45deg);
+}
+
+.modal-btn::before {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: var(--fw-bold);
+}
+
+.modal-btn:hover {
+    transform: rotate(45deg) scale(1.05);
+}
+
+.modal-btn:active {
+    transform: rotate(45deg) scale(0.98);
+}
+
